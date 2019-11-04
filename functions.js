@@ -15,7 +15,27 @@ const functions = {
     axios
       .get("https://jsonplaceholder.typicode.com/users/1")
       .then(res => res.data)
-      .catch(err => "error")
+      .catch(err => "error"),
+
+  reverseString: string =>
+    string
+      .split("")
+      .reverse()
+      .join(""),
+
+  chunkedArray: (array, len) => {
+    const chunkedArr = [];
+
+    array.forEach(val => {
+      const last = chunkedArr[chunkedArr.length - 1];
+      if (!last || last.length === len) {
+        chunkedArr.push([val]);
+      } else {
+        last.push(val);
+      }
+    });
+    return chunkedArr;
+  }
 };
 
 module.exports = functions;

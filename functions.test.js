@@ -52,6 +52,25 @@ test("User fetched name is leanne Graham", async () => {
   expect(response.name).toEqual("Leanne Graham");
 });
 
+test("Reverse String function Exists", () => {
+  expect(functions.reverseString).toBeDefined();
+});
+
+test("String reverses", () => {
+  expect(functions.reverseString("hello")).toEqual("olleh");
+});
+
+test("checked array function exists", () => {
+  expect(functions.chunkedArray).toBeDefined();
+});
+
+test("Chunk an array of values with a length of 2", () => {
+  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const len = 2;
+  const chunkedArr = functions.chunkedArray(array, len);
+  expect(chunkedArr).toEqual([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]]);
+});
+
 //Jest Matchers
 // toBeNull matches only null
 // toBeUndefined matches only undefined
